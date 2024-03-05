@@ -123,12 +123,25 @@ test_record: force time to update
 git add .
 git commit -m "4"
 git push origin dev
-(on branch "master")
 ```
 - 如果从本地合并`git merge dev`
 - 如果从远程拉取`git pull origin dev`
 
 3. 解决冲突
+```
+(on branch "dev")
+test_record: fifth time to update by branch dev
+git add .
+git commit -m "5"
+git push origin dev
+(on branch "master")
+test_record: fifth time to update by branch master
+git add .
+git commit -m "5"
+git push origin master
+```
+
+
 4. 变基
 5. 删除分支
 
