@@ -110,7 +110,9 @@ git checkout -b dev
 git branch dev
 git checkout dev
 ```
-2. 合并分支
+2. 查看分支
+`git branch`
+3. 合并分支
 ```
 (on branch "dev")
 test_record: force time to update
@@ -120,9 +122,10 @@ git push origin dev
 (on branch "master")
 git merge dev
 ```
-3. 解决冲突
-4. 变基
-5. 删除分支
+4. 解决冲突
+5. 变基
+6. 删除分支
+`git branch -D dev`
 
 ## 6. 自定义 Git
 1. 忽略特殊文件
