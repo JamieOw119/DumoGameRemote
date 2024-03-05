@@ -176,7 +176,9 @@ git log --graph --pretty=oneline --abbrev-commit
 ```
 - 合并 commit
 ```
-
+git rebase HEAD~1
+选择留下的分支（留下的前面写pick，反之squash）
+编辑涉及到的 commit comments
 ```
 
 5. 删除分支
@@ -186,4 +188,10 @@ git branch -D dev
 
 ## 6. 自定义 Git
 1. 忽略特殊文件
-2. 配置别名
+- 使用 `.gitignore` 文件，然后写 `.git` 目录相对路径
+
+2. 配置和别名
+```
+git config --global user.name XXX
+git config --global alias.co commit
+```
