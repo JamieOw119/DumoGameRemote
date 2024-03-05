@@ -51,6 +51,12 @@ git pull origin master
 ### 4. 版本回退、撤销修改
 
 不同情况下的版本回退
+```
+注：不同 reset 参数的区别
+mixed：将指定 commit id 撤回之后所有内容全部放进工作区中
+soft：将指定 commit id 撤回之后所有内容全部放进暂存区。
+hard：将指定 commit id 撤回并清空工作目录及暂存区所有修改
+```
 
 1. 还未添加到 stage（not add）
 ```
@@ -72,11 +78,14 @@ git commit -m "3"
 git reset --hard [hash id of commit version 2]
 ```
 
-4. 推送到远程 repository (pushed)
+可见在没有上传到远程的时候，合理搭配不同参数即可发挥回退作用。
 
+4. 推送到远程 repository (pushed)
 ```
-注：不同 reset 参数的区别
-mixed：将指定 commit id 撤回之后所有内容全部放进工作区中
-soft：将指定 commit id 撤回之后所有内容全部放进暂存区。
-hard：将指定 commit id 撤回并清空工作目录及暂存区所有修改
+test_record: third time to update
+git add .
+git commit -m "3"
+git push origin master
+git reset --hard [hash id of commit version 2]
 ```
+
