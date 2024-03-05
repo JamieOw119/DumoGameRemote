@@ -7,7 +7,7 @@
 1. 为了传输安全性和身份认证，务必使用 SSH 方式。
 2. 所有修改示例都在 `test_record` 文件中，本文档仅作说明用途。
 
-## 2. 仓库创建和下载
+## 2. 仓库创建、下载和关联
 
 1. 远程创建后下载
 - 登陆 GitHub 创建本仓库
@@ -31,7 +31,7 @@ git branch -M master
 git push -u origin master
 ```
 
-### 3. 仓库修改、提交和拉取
+## 3. 仓库修改、提交和拉取
 
 1. 修改：test_record: first time to update
 2. 提交：
@@ -48,11 +48,11 @@ git push origin master
 git pull origin master
 ```
 
-### 4. 版本回退、撤销修改
+## 4. 版本回退、撤销修改
 
 不同情况下的版本回退
 ```
-注：不同 reset 参数的区别
+注 1：不同 reset 参数的区别
 mixed：将指定 commit id 撤回之后所有内容全部放进工作区中
 soft：将指定 commit id 撤回之后所有内容全部放进暂存区。
 hard：将指定 commit id 撤回并清空工作目录及暂存区所有修改
@@ -88,4 +88,42 @@ git commit -m "3"
 git push origin master
 git reset --hard [hash id of commit version 2]
 ```
+如果想和远程保持一致，则`git pull origin master`
+如果想和本地保持一致，则`git push origin master --force`
 
+5. 撤回修改
+`git checkout -- [filename]`
+```
+注 2：回退的范围
+修改后还没有被放到暂存区：撤销修改就回到和版本库一模一样的状态；
+已经添加到暂存区后，又作了修改：撤销修改就回到添加到暂存区后的状态。
+```
+
+## 5. 分支控制
+
+1. 创建分支
+```
+git checkout -b dev
+```
+或者
+```
+git branch dev
+git checkout dev
+```
+2. 合并分支
+```
+(on branch "dev")
+test_record: force time to update
+git add .
+git commit -m "4"
+git push origin dev
+(on branch "master")
+git merge dev
+```
+3. 解决冲突
+4. 变基
+5. 删除分支
+
+## 6. 自定义 Git
+1. 忽略特殊文件
+2. 配置别名
