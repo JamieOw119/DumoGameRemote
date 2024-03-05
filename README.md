@@ -139,11 +139,50 @@ test_record: fifth time to update by branch master
 git add .
 git commit -m "5"
 git push origin master
+
+git merge dev
+test_record 手动修改为 master 自己的版本
+
+git log --graph --pretty=oneline --abbrev-commit
+*   c63470b (HEAD -> master) fix conflict
+|\
+| * 767bc62 (origin/dev, dev) 5
+* | 7edffac (origin/master) 5
+|/
+* 75ef109 clear dev branch
+* 6e42c80 4
+* 46f82ed clear master branch
+* 4e20a41 3
+* 1675cb2 2
+* 8b6e3fb 1
 ```
 
-
 4. 变基
+
+- 去除分支合并记录
+```
+git rebase
+手动修正 merge conflict
+git rebase --continue
+git log --graph --pretty=oneline --abbrev-commit
+* e66aa84 (HEAD -> master) fix conflict
+* 7edffac (origin/master) 5
+* 75ef109 clear dev branch
+* 6e42c80 4
+* 46f82ed clear master branch
+* 4e20a41 3
+* 1675cb2 2
+* 8b6e3fb 1
+```
+- 合并 commit
+```
+
+```
+
 5. 删除分支
+```
+git branch -D dev
+```
 
 ## 6. 自定义 Git
 1. 忽略特殊文件
