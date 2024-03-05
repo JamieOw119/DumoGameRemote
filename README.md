@@ -34,15 +34,18 @@ git push -u origin master
 ## 3. 仓库修改、提交和拉取
 
 1. 修改：test_record: first time to update
+
 2. 提交：
 ```
 git add .
 git commit -n "1"
 git push origin master
 ``` 
+
 3. 远程修改：
     - test_record: second time to update 
     - commit it on GitHub
+
 4. 拉取：
 ```
 git pull origin master
@@ -63,6 +66,7 @@ hard：将指定 commit id 撤回并清空工作目录及暂存区所有修改
 test_record: third time to update
 git reset --hard [hash id of commit version 2]
 ```
+
 2. 添加到 stage 但是没有提交到 repository（added but not commit）
 ```
 test_record: third time to update
@@ -70,6 +74,7 @@ git add .
 git commit -m "3"
 git reset --hard [hash id of commit version 2]
 ```
+
 3. 提交到本地 repository（commited but not push）
 ```
 test_record: third time to update
@@ -110,9 +115,8 @@ git checkout -b dev
 git branch dev
 git checkout dev
 ```
-2. 查看分支
-`git branch`
-3. 合并分支
+
+2. 合并分支
 ```
 (on branch "dev")
 test_record: force time to update
@@ -120,12 +124,13 @@ git add .
 git commit -m "4"
 git push origin dev
 (on branch "master")
-git merge dev
 ```
-4. 解决冲突
-5. 变基
-6. 删除分支
-`git branch -D dev`
+- 如果从本地合并`git merge dev`
+- 如果从远程拉取`git pull origin dev`
+
+3. 解决冲突
+4. 变基
+5. 删除分支
 
 ## 6. 自定义 Git
 1. 忽略特殊文件
